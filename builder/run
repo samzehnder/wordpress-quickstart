@@ -130,6 +130,14 @@ Alias /webdav/ /opt/app-root/src/
     fi
 fi
 
+# Do some security stuff
+
+cat > /opt/app-root/etc/conf.d/90-security.conf << !
+ServerTokens Prod
+ServerSignature Off
+TraceEnable off
+!
+
 # Execute the original run script, replacing this script as current process.
 
 exec /usr/libexec/s2i/run
